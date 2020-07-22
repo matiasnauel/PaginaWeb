@@ -8,7 +8,7 @@ singupForm.addEventListener('submit', (e) => {
 
     auth.signInWithEmailAndPassword(email, contraseña)
         .then(userCredential => {
-            location.href = "/PantallasPrincipales/PaginaPrincipal.html";
+            location.href = "PantallaPrincipal.html";
         })
 
 
@@ -25,8 +25,12 @@ googleBoton.addEventListener('click', e => {
             token = result.credential.accessToken;
             var user = result.user;
             var Uids = user.uid;
+
             user.getIdToken().then(function(data) {
-                loginAPIGoogle(data, Uids);
+                ///loginAPIGoogle(data, Uids);
+                console.log(data);
+                console.log(Uids);
+
             });
         })
         .catch(erro => {
