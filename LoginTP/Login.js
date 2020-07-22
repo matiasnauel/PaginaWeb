@@ -8,7 +8,7 @@ singupForm.addEventListener('submit', (e) => {
 
     auth.signInWithEmailAndPassword(email, contraseña)
         .then(userCredential => {
-            location.href = "PantallaPrincipal.html";
+            location.href = "/PantallasPrincipales/PaginaPrincipal.html";
         })
 
 
@@ -17,6 +17,7 @@ singupForm.addEventListener('submit', (e) => {
 //Boton para acceder con google ----------------------------------->
 const googleBoton = document.querySelector('#GoogleBoton');
 var token = "";
+var Uids = "";
 googleBoton.addEventListener('click', e => {
         const provider = new firebase.auth.GoogleAuthProvider();
         auth.signInWithPopup(provider)
@@ -24,7 +25,8 @@ googleBoton.addEventListener('click', e => {
                 var token = result.credential.accessToken;
                 var user = result.user;
                 alert("login OK");
-                user.getToken().then(function(t) { token = t; });
+                user.getIdToken().then(function(t) { token = t; })
+                    .then(function(t) { Uids = result.uid });
                 loginAPI();
             })
             .catch(erro => {
@@ -32,9 +34,9 @@ googleBoton.addEventListener('click', e => {
             })
     })
     //----------------------------------------------------------------->
-function loginAPI() {
+function loginAPIGoogle() {
     $.ajax({
-        url: "http://localhost:58041/v1/Users/",
+        url: `https://localhost:44368/api/Autenticacion/getUser?uids=${Uids}`,
         dataType: 'json',
         type: 'GET',
         beforeSend: function(xhr) {
@@ -58,28 +60,43 @@ function RestablecerContraseña() {
     var comentario = document.getElementById('comentario1');
     if (email == "") {
 
-        comentario.innerHTML = `  
-    <!-- Modal -->
-            <div class="modal fade" id="myModal" role="dialog">
-                <div class="modal-dialog">
-                
+        comentario.innerHTML = `
+                    <!-- Modal -->
+                    <
+                    div class = "modal fade"
+                id = "myModal"
+                role = "dialog" >
+                <
+                div class = "modal-dialog" >
+
                 <!-- Modal content-->
-                <div class="modal-content">
-                    <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    
-                    </div>
-                    <div class="modal-body">
-                    <p>Ingrese su correo electronico.</p>
-                    </div>
-                    <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                    </div>
-                </div>
-                
-                </div>
-            </div>
-        `;
+                <
+                div class = "modal-content" >
+                <
+                div class = "modal-header" >
+                <
+                button type = "button"
+                class = "close"
+                data - dismiss = "modal" > & times; < /button>
+
+                <
+                /div> <
+                div class = "modal-body" >
+                <
+                p > Ingrese su correo electronico. < /p> <
+                /div> <
+                div class = "modal-footer" >
+                <
+                button type = "button"
+                class = "btn btn-default"
+                data - dismiss = "modal" > Cerrar < /button> <
+                /div> <
+                /div>
+
+                <
+                /div> <
+                /div>
+                `;
 
     } else {
         var auth = firebase.auth();
