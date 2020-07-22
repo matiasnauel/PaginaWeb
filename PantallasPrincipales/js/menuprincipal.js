@@ -317,3 +317,55 @@ function llenarLocalStorage(publicacionID) {
     llenarLocalStorage.setItem("publicacionID", parseInt(publicacionID));
 
 }
+
+//----------------------------------------------------- FIREBASE ------------------------------------------------------------------//v
+var dropDownContenido = document.getElementById('dropdown');
+
+//Agregar un Obsevador para obtener información del usuario ingresado a la pagina
+function Observador() {
+    firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+            Aparece(user);
+            // User is signed in.
+            console.log("existe usuario activo");
+            var displayName = user.displayName;
+            var email = user.email;
+            var emailVerified = user.emailVerified;
+            var photoURL = user.photoURL;
+            var isAnonymous = user.isAnonymous;
+            var uid = user.uid;
+            var providerData = user.providerData;
+            // ...
+            //devuelve el token del usuario
+            user.getIdToken().then(function(data) {
+                console.log(data)
+            });
+            console.log("hola");
+
+        } else {
+            // User is signed out.
+            // ...
+            console.log("no existe el usuario");
+        }
+    });
+}
+Observador();
+
+//--Boton cerrar---/
+function Cerrar() {
+    firebase.auth().signOut().then(function() {
+        console.log("Finalizo sesion");
+        location.href = "Login.html";
+    }).catch(function(error) {
+        console.log(error);
+    });
+}
+
+//-- aparese si el usuario se registra --//
+function Aparece(user) {
+    //Si se verifico el usuario que rediriga la pagina
+    if (user.emailVerified == true) {
+        dropDownContenido.innerHTML = `<button onclick="Cerrar();">Cerrar Sesion</button>`;
+    }
+}
+Aparece();

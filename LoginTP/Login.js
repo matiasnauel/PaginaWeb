@@ -17,24 +17,25 @@ singupForm.addEventListener('submit', (e) => {
 //Boton para acceder con google ----------------------------------->
 const googleBoton = document.querySelector('#GoogleBoton');
 var token = "";
-var Uids = "";
+
 googleBoton.addEventListener('click', e => {
-        const provider = new firebase.auth.GoogleAuthProvider();
-        auth.signInWithPopup(provider)
-            .then(function(result) {
-                var token = result.credential.accessToken;
-                var user = result.user;
-                alert("login OK");
-                user.getIdToken().then(function(t) { token = t; })
-                    .then(function(t) { Uids = result.uid });
-                loginAPI();
-            })
-            .catch(erro => {
-                console.log(erro);
-            })
-    })
-    //----------------------------------------------------------------->
-function loginAPIGoogle() {
+    const provider = new firebase.auth.GoogleAuthProvider();
+    auth.signInWithPopup(provider)
+        .then(function(result) {
+            token = result.credential.accessToken;
+            var user = result.user;
+            var Uids = user.uid;
+            user.getIdToken().then(function(data) {
+                loginAPIGoogle(data, Uids);
+            });
+        })
+        .catch(erro => {
+            console.log(erro);
+        })
+});
+
+//----------------------------------------------------------------->
+function loginAPIGoogle(data, Uids) {
     $.ajax({
         url: `https://localhost:44368/api/Autenticacion/getUser?uids=${Uids}`,
         dataType: 'json',
@@ -42,17 +43,18 @@ function loginAPIGoogle() {
         beforeSend: function(xhr) {
             xhr.setRequestHeader("Accept", "application/json");
             xhr.setRequestHeader("Content-Type", "application/json");
-            xhr.setRequestHeader("Authorization", "Bearer " + token);
+            xhr.setRequestHeader("Authorization", "Bearer " + data);
         },
         error: function(ex) {
             console.log(ex.status + " - " + ex.statusText);
         },
-        success: function(data) {
-            console.log(data);
-            return data;
+        success: function() {
+            location.href = "";
         }
     });
 }
+
+
 //------------------------------------------------------------------>
 //Restablecer contraseña
 function RestablecerContraseña() {
