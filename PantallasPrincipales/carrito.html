@@ -3,13 +3,13 @@
 <head>
 
 
- <meta charset="utf-8">
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-   
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
- 
+
     <!-- Facebook and Twitter integration -->
     <meta property="og:title" content="" />
     <meta property="og:image" content="" />
@@ -40,6 +40,8 @@
 
     <link rel="stylesheet" href="css/style.css">
 
+    <link rel="stylesheet" href="css/estilosMenu.css">
+
 
     <!-- Modernizr JS -->
     <script src="js/modernizr-2.6.2.min.js"></script>
@@ -48,109 +50,370 @@
 	<script src="js/respond.min.js"></script>
 	<![endif]-->
 
-    
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/stylo.css">
-
+    <style>
+        .container-fluid-navbar {
+            margin-right: auto;
+            margin-left: auto;
+            padding-left: 15px;
+            padding-right: 50px;
+        }
+        
+        .containere {
+            position: relative!important;
+            width: 50%;
+        }
+        
+        .image {
+            opacity: 1;
+            width: 100%;
+            height: auto;
+            transition: .5s ease;
+            backface-visibility: hidden;
+        }
+        
+        .middle {
+            transition: .5s ease;
+            opacity: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            text-align: center;
+        }
+        
+        .containere:hover .middle {
+            opacity: 1;
+        }
+        
+        .text {
+            color: black;
+            font-size: 14px;
+            margin-left: 10px;
+            margin-right: 10px;
+            background-color: white;
+            font-weight: bold
+        }
+        
+        a {
+            color: #76939e;
+            -webkit-transition: 0.5s;
+            -o-transition: 0.5s;
+            transition: 0.5s;
+        }
+        
+        .fa {
+            display: inline-block;
+            font: normal normal normal 14px/1 FontAwesome;
+            font-size: 20px;
+            text-rendering: auto;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        .btn-default {
+            color: #fdf3f3;
+            background-color: #d8bcbc;
+            border-color: #ccc;
+        }
+        
+        .barraClasificadora {
+            margin: 10px;
+        }
+        
+        .topnav {
+            overflow: hidden;
+        }
+        
+        .topnav li a {
+            display: block;
+            color: black;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+            border-bottom: 3px solid transparent;
+        }
+        
+        .topnav a:hover {
+            border-bottom: 3px solid red;
+            cursor: pointer;
+        }
+        
+        .description-producto {
+            cursor: pointer!important;
+        }
+        
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            min-width: 160px;
+            background-color: white;
+            z-index: 1;
+        }
+        
+        .dropdown-content a {
+            color: black;
+        }
+        
+        .dropdown button {
+            padding-top: 18px;
+            background-color: white;
+            outline: none!important;
+            border: none;
+        }
+        
+        .servicios {
+            margin: 3rem auto;
+        }
+        
+        .contenedor-servicios {
+            margin-top: 3rem;
+        }
+        
+        @media (min-width:768px) {
+            .contenedor-servicios {
+                display: flex;
+                justify-content: space-between;
+            }
+            .servicio {
+                flex: 0 0 calc( 33.3% - 1rem);
+            }
+        }
+        
+        .servicio {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .service-text {
+            margin: 0;
+            text-align: center;
+            letter-spacing: 2px;
+            font-weight: 300;
+        }
+        
+        .contenedor-imagen {
+            width: 100px;
+        }
+        
+        .centrar {
+            text-align: center;
+        }
+        
+        .centrar-boton {
+            vertical-align: middle!important;
+        }
+        
+        .titulo {
+            vertical-align: middle!important;
+        }
+        
+        .precio {
+            vertical-align: middle!important;
+        }
+        
+        .cantidad {
+            vertical-align: middle!important;
+        }
+    </style>
 
 </head>
 
 
 
 <body>
-<header id="fh5co-header" role="banner">
-        <div class="container text-center">
-            <div id="fh5co-logo">
-                <a href="index.html"><img src="images/logo.png" alt="Present Free HTML5 Bootstrap Template"></a>
+    <header class=" seccion-bottom  ">
+        <div class="container-fluid  ">
+            <div class="navbar-header ">
+                <a class="navbar-brand" href="PaginaPrincipal.html"><img src="images/logo.png" style="width: 40% ;"></a>
             </div>
-            <nav>
-                <ul>
-                    <li class="active"><a href="work.html"><span class="glyphicon glyphicon-user" ></span></a></li>
-                    <li><a href="contact.html"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></a></li>
-                    <li></li> <input type="search " class="search " id="search" placeholder="Search..." /></li>
-                </ul>
-            </nav>
 
-        </div>
-    </header>
-  <main class="MainCarrito">
-    <div class="col-md-9">
 
-        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h3 class="panel-title">Carrito</h3>
-                            </div> <!--Panel del titulo-->
-                            <div class="panel-body">
-                          
-                                <br>
-                                <table class="table table-striped table-hover">
-                                    <tr>
-                                        <th>Nombre</th>
-                                        <th>Precio</th>
-                                        <th>Fecha</th>
-                                        <th></th>
-                                    </tr>
-                                    <tr>
-                                        <td>Zapatillas Nike</td>
-                                     <td>$50</td>
-                                        <td>Junio 7,2020</td>
-                                        <td>
-                                         
-                                            <a class="btn btn-danger" href="Borrar.html">Borrar</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Buzo Nike</td>
-                                        <td>$50</td>
-                                        <td>Junio 7,2020</td>
-                                        <td>
-                                           
-                                            <a class="btn btn-danger" href="Borrar.html">Borrar</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Medias Nike</td>
-                                           <td>$50</td>
-                                        <td>Junio 7,2020</td>
-                                        <td>
-                                       
-                                            <a class="btn btn-danger" href="Borrar.html">Borrar</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Bufanda Nike</td>
-                                      <td>$50</td>
-                                        <td>Junio 7,2020</td>
-                                        <td>
-                                           
-                                            <a class="btn btn-danger" href="Borrar.html">Borrar</a>
-                                        </td>
-                                    </tr>
-    
-                                </table>
-                                
-                            </div>  <!--Panel de body-->
-                        </div>
-                        
+            <ul class="nav navbar-nav navbar-right container-fluid-navbar">
+                <form class="navbar-form navbar-left " id="formulario">
+                    <div class="form-group">
+                        <input type="search" class="form-control  w3-margin-top" placeholder="Buscar.." id="search">
                     </div>
-                   
-               
-  </main>
-  
-				                                       
+                    <button type="submit" class="btn  w3-margin-top" onclick="Search();"><i class="glyphicon glyphicon-search"></i></button>
 
-        
-  <footer id="fh5co-footer" role="contentinfo">
-    <div class="container-fluid">
-        <div class="footer-content">
-            <div class="social">
-                <a href="#"><i class="icon-facebook3"></i></a>
-                <a href="#"><i class="icon-instagram2"></i></a>
-                <a href="#"><i class="icon-linkedin2"></i></a>
-            </div>
+                </form>
+
+                <li>
+                    <div class="dropdown">
+                        <button><i class="  fa fa-user-o w3-margin-top " aria-hidden="true"></i></button>
+                        <div class="dropdown-content" id="dropdown">
+                            <a href="#">Iniciar sesión</a>
+                            <a href="#">Registrarse</a>
+                        </div>
+                    </div>
+                </li>
+
+                <li><a href="#"><i class="fa fa-shopping-cart w3-margin-top" aria-hidden="true"></i></a></li>
+            </ul>
+
+
         </div>
-    </div>
-</footer>
+
+        <div class="container w3-margin-top ">
+            <ul class="nav  nav-justified w3-center topnav">
+                <li>
+                    <a class="barraClasificadora">Indumentaria Invierno</a>
+                </li>
+                <li>
+                    <a class="barraClasificadora">Indumentaria Verano</a>
+                </li>
+                <li>
+                    <a class="barraClasificadora">Indumentaria otoño </a>
+                </li>
+
+            </ul>
+        </div>
+
+    </header>
+    <main class="MainCarrito">
+        <div class="col-md-9">
+
+            <div class="panel panel-default">
+
+                <!--Panel del titulo-->
+                <div class="panel-body">
+
+                    <br>
+                    <table class="table table-striped table-hover">
+                        <tr>
+                            <th>Producto</th>
+                            <th>Nombre</th>
+                            <th>Precio</th>
+                            <th>Cantidad</th>
+
+                            <th>Eliminar</th>
+
+                        </tr>
+                        <tr>
+
+                            <td>
+                                <div class="contenedor-imagen">
+                                    <img src="images/1.jpg" alt="">
+                                </div>
+                            </td>
+                            <td class="titulo">Zapatillas Nike</td>
+                            <td class="precio">$50</td>
+                            <td class="cantidad">2</td>
+                            <td class="centrar-boton">
+
+                                <a class="btn btn-danger centrar-boton" href="Borrar.html">Borrar</a>
+                            </td>
+                        </tr>
+                        <tr>
+
+                            <td>
+                                <div class="contenedor-imagen">
+                                    <img src="images/1.jpg" alt="">
+                                </div>
+                            </td>
+                            <td class="titulo">Zapatillas Nike</td>
+                            <td class="precio">$50</td>
+                            <td class="cantidad">2</td>
+                            <td class="centrar-boton">
+
+                                <a class="btn btn-danger centrar-boton" href="Borrar.html">Borrar</a>
+                            </td>
+                        </tr>
+                        <tr>
+
+                            <td>
+                                <div class="contenedor-imagen">
+                                    <img src="images/1.jpg" alt="">
+                                </div>
+                            </td>
+                            <td class="titulo">Zapatillas Nike</td>
+                            <td class="precio">$50</td>
+                            <td class="cantidad">2</td>
+                            <td class="centrar-boton">
+
+                                <a class="btn btn-danger centrar-boton" href="Borrar.html">Borrar</a>
+                            </td>
+                        </tr>
+                        <tr>
+
+                            <td>
+                                <div class="contenedor-imagen">
+                                    <img src="images/1.jpg" alt="">
+                                </div>
+                            </td>
+                            <td class="titulo">Zapatillas Nike</td>
+                            <td class="precio">$50</td>
+                            <td class="cantidad">2</td>
+                            <td class="centrar-boton">
+
+                                <a class="btn btn-danger centrar-boton" href="Borrar.html">Borrar</a>
+                            </td>
+                        </tr>
+
+
+
+
+                    </table>
+                    <div class="contenedor-total">
+                        <label class="pull-right ">TOTAL: $2304</label>
+                    </div>
+                    <div class="contenedor-boton">
+                        <button class="btn btn-danger ">Cancelar</button>
+                        <button class="btn btn-success ">Comprar</button>
+                    </div>
+
+
+
+                </div>
+
+                <!--Panel de body-->
+            </div>
+
+        </div>
+
+
+    </main>
+
+
+
+
+    <footer id="fh5co-footer" role="contentinfo">
+        <div class="container">
+
+            <div class="footer-content">
+
+                <div class="social">
+
+                    <a href="#"><i class="icon-facebook3"></i></a>
+                    <a href="#"><i class="icon-instagram2"></i></a>
+
+                </div>
+            </div>
+
+        </div>
+    </footer>
+    <!-- <script type="text/javascript" src="js/localstorage.js"></script>
+    <script type="text/javascript" src="js/menuprincipal.js"></script>
+    <script type="text/javascript" src="js/jquery-3.4.1.js"></script> -->
+    <!-- jQuery -->
+    <script src="js/jquery.min.js "></script>
+    <!-- Bootstrap -->
+    <script src="js/bootstrap.min.js "></script>
+    <!-- masonry -->
+    <script src="js/jquery.masonry.min.js "></script>
+    <!-- MAIN JS -->
+    <script src="js/main.js "></script>
+
 
 </body>
 
