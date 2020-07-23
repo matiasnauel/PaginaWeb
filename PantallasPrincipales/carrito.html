@@ -289,7 +289,7 @@
                 <div class="panel-body">
 
                     <br>
-                    <table class="table table-striped table-hover">
+                    <table class="table table-striped table-hover" id="contenedor">
                         <tr>
                             <th>Producto</th>
                             <th>Nombre</th>
@@ -299,76 +299,18 @@
                             <th>Eliminar</th>
 
                         </tr>
-                        <tr>
 
-                            <td>
-                                <div class="contenedor-imagen">
-                                    <img src="images/1.jpg" alt="">
-                                </div>
-                            </td>
-                            <td class="titulo">Zapatillas Nike</td>
-                            <td class="precio">$50</td>
-                            <td class="cantidad">2</td>
-                            <td class="centrar-boton">
 
-                                <a class="btn btn-danger centrar-boton" href="Borrar.html">Borrar</a>
-                            </td>
-                        </tr>
-                        <tr>
-
-                            <td>
-                                <div class="contenedor-imagen">
-                                    <img src="images/1.jpg" alt="">
-                                </div>
-                            </td>
-                            <td class="titulo">Zapatillas Nike</td>
-                            <td class="precio">$50</td>
-                            <td class="cantidad">2</td>
-                            <td class="centrar-boton">
-
-                                <a class="btn btn-danger centrar-boton" href="Borrar.html">Borrar</a>
-                            </td>
-                        </tr>
-                        <tr>
-
-                            <td>
-                                <div class="contenedor-imagen">
-                                    <img src="images/1.jpg" alt="">
-                                </div>
-                            </td>
-                            <td class="titulo">Zapatillas Nike</td>
-                            <td class="precio">$50</td>
-                            <td class="cantidad">2</td>
-                            <td class="centrar-boton">
-
-                                <a class="btn btn-danger centrar-boton" href="Borrar.html">Borrar</a>
-                            </td>
-                        </tr>
-                        <tr>
-
-                            <td>
-                                <div class="contenedor-imagen">
-                                    <img src="images/1.jpg" alt="">
-                                </div>
-                            </td>
-                            <td class="titulo">Zapatillas Nike</td>
-                            <td class="precio">$50</td>
-                            <td class="cantidad">2</td>
-                            <td class="centrar-boton">
-
-                                <a class="btn btn-danger centrar-boton" href="Borrar.html">Borrar</a>
-                            </td>
-                        </tr>
 
 
 
 
                     </table>
                     <div class="contenedor-total">
-                        <label class="pull-right ">TOTAL: $2304</label>
+                        <label class="pull-right " id="precio">0</label>
                     </div>
                     <div class="contenedor-boton">
-                        <button class="btn btn-danger ">Cancelar</button>
+                        <button class="btn btn-danger " onclick="cancelar();">Cancelar</button>
                         <button class="btn btn-success ">Comprar</button>
                     </div>
 
@@ -405,6 +347,8 @@
     <!-- <script type="text/javascript" src="js/localstorage.js"></script>
     <script type="text/javascript" src="js/menuprincipal.js"></script>
     <script type="text/javascript" src="js/jquery-3.4.1.js"></script> -->
+    <script type="text/javascript" src="js/carrito.js"></script>
+    <script type="text/javascript" src="js/jquery-3.4.1.js"></script>
     <!-- jQuery -->
     <script src="js/jquery.min.js "></script>
     <!-- Bootstrap -->

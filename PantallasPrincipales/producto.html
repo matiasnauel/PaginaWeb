@@ -161,6 +161,11 @@
             margin-top: 20px;
             margin-bottom: 15px;
         }
+        
+        .btn-VerMas {
+            font-size: 20px;
+            text-decoration: none!important;
+        }
     </style>
 </head>
 
@@ -218,18 +223,18 @@
     <main class="contenedor seccion">
 
         <div class="contenedor-informacion">
-            <img src="images/5.jpg" alt="Imagen-Producto" class="imagen producto">
+            <img alt="Imagen-Producto" class="imagen producto" id="producto">
             <div class="contenido">
-                <p class="TituloNombre">SHORT VERANO ALGODON 100%</p>
+                <p class="TituloNombre" id="nombre">SHORT VERANO ALGODON 100%</p>
 
-                <span class="Precio">$5400</span>
+                <span class="Precio" id="precio">$5400</span>
 
                 <div class="seccionStock">
                     <span class="label label-default posicion">Stock Disponible</span>
                 </div>
                 <form class="formulario-pedido">
                     <div class="seccionCantidad">
-                        <Label class="Txtcantidad">CANTIDAD</Label>
+                        <Label class="Txtcantidad" id="stock">CANTIDAD</Label>
                         <input class="form-control" min="1" type="number">
                         <label class="Txtcantidad">Medios de pago</label>
                         <img src="/images/mercadopago.png" class="media-object" alt="" style="width: 50%;">
@@ -263,7 +268,7 @@
                 </ul>
             </div></label>
 
-            <h2> 2 comentarios</h2>
+            <h2> Comentarios</h2>
 
             <hr>
             <div class="row">
@@ -276,12 +281,12 @@
                 <div class="col-sm-11">
                     <div class="panel panel-default">
                         <div class="panel-body">
-                            <textarea name="text" class="form-control" placeholder="Agregar un  Comentario.."></textarea>
+                            <textarea name="text" class="form-control" placeholder="Agregar un  Comentario.." id="comentario"></textarea>
 
 
                         </div>
                     </div>
-                    <button class="btn btn-primary pull-right ">Comentar</button>
+                    <button class="btn btn-primary pull-right " onclick="comentar();">Comentar</button>
                 </div>
 
             </div>
@@ -292,33 +297,16 @@
 
 
 
-        <article class="container seccion">
-            <!-- Left-aligned media object -->
-            <div class="media">
-                <div class="media-left">
-                    <img src="images/fotoperfil.jpg" class="img-rounded" alt="Cinque Terre" class="media-object" style="width:60px">
-                </div>
-                <div class="media-right">
-                    <h4 class="media-heading">Ratita</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                </div>
-            </div>
-            <hr>
-            <!-- Left-aligned media object -->
-            <div class="media">
-                <div class="media-left">
-                    <img src="images/fotoperfil.jpg" class="img-rounded" alt="Cinque Terre" class="media-object" style="width:60px">
-                </div>
-                <div class="media-right">
-                    <h4 class="media-heading">Ratita</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                </div>
-            </div>
-            <hr>
+        <article class="container seccion" id="secciones">
+
+
 
 
         </article>
 
+        <div class="container">
+            <button class="btn btn-link btn-VerMas" onclick="VerMas();">Ver más comentarios </button>
+        </div>
     </section>
     <div class="container-fluid">
         <div class="container">
@@ -343,8 +331,9 @@
             </div>
         </div>
     </footer>
-
-
+    <script type="text/javascript" src="js/localstoragePublicacion.js"></script>
+    <script type="text/javascript" src="js/producto.js"></script>
+    <script type="text/javascript" src="js/jquery-3.4.1.js"></script>
     <!-- jQuery -->
     <script src="js/jquery.min.js"></script>
     <!-- Bootstrap -->

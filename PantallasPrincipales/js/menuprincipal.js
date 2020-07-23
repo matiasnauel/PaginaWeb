@@ -154,14 +154,15 @@ function VerMas() {
 
 
 
-function buscar() {
-
+var buscador = document.getElementById('formulario');
+buscador.addEventListener('submit', function(e) {
+    e.preventDefault();
     var filtro = document.getElementById("search").value;
     var maestro = document.getElementById("maestro");
     var contenedor = document.getElementById("contenedor");
     var paginacion = document.getElementById("paginacion");
-    maestro.removeChild(contenedor);
-    maestro.removeChild(paginacion);
+    maestro.remove(contenedor);
+    maestro.remove(paginacion);
     $.ajax({
         type: "GET",
         url: "https://localhost:44398/api/Publicacion/ProductosPublicacionFiltro?filtro=" + filtro,
@@ -202,17 +203,23 @@ function buscar() {
 
                 var boton = document.createElement('button');
                 boton.className = "text btn";
-                boton.textContent = "Añadir Al Carrito";
+                boton.textContent = "A�adir Al Carrito";
                 div2.append(boton);
 
                 var div3 = document.createElement('div');
                 div3.className = "w3-center btn-link description-producto";
 
 
+                var a = document.createElement('a');
+                a.onclick = function() {
+                    llenarLocalStorage(item.publicacionID);
+                    location.href = "producto.html";
+                }
                 var p = document.createElement('p');
                 p.className = "titulo";
                 p.textContent = item.nombre + " / " + "$" + item.precio;
-                div3.append(p);
+                a.append(p);
+                div3.append(a);
 
                 div.append(imagen);
                 div.append(div2);
@@ -231,10 +238,7 @@ function buscar() {
 
 
     });
-
-
-
-}
+});
 
 
 var buscador = document.getElementById('formulario');
